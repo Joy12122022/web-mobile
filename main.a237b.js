@@ -12,12 +12,12 @@ window.boot = function () {
 
         let params = new URLSearchParams(location.search);
         const _lang = params.get("lang");
-        let _splashStr = "./splash_en.26c0c.jpg";
+        let _splashStr = "./splash_en.505b7.jpg";
 
         if (_lang != null) {
             switch (_lang) {
                 case "en":
-                    _splashStr = "./splash_en.26c0c.jpg";
+                    _splashStr = "./splash_en.505b7.jpg";
                     break;
                 case "cn":
                     _splashStr = "./splash_cn.jpg";
@@ -45,12 +45,12 @@ window.boot = function () {
                     break;
 
                 default:
-                    _splashStr = "./splash_en.26c0c.jpg";
+                    _splashStr = "./splash_en.505b7.jpg";
                     break;
             }
         }
 
-        let _defaultSplashStyle = "#171717 url('./splash_en.26c0c.jpg') no-repeat center";
+        let _defaultSplashStyle = "#171717 url('./splash_en.505b7.jpg') no-repeat center";
         splash.style.background = "#171717 url('" + _splashStr + "') no-repeat center";
         splash.style.backgroundSize = "contain";
         //splash.onerror="this.onerror=null;splash.style.background = " + _defaultSplashStyle;
@@ -106,26 +106,32 @@ window.boot = function () {
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
         }
 
-        var launchScene = settings.launchScene;
-        var bundle = cc.assetManager.bundles.find(function (b) {
-            return b.getSceneInfo(launchScene);
-        });
+        cc.game.pause();
+        setTimeout(() => {
+            cc.game.resume();
+            ////
+            var launchScene = settings.launchScene;
+            var bundle = cc.assetManager.bundles.find(function (b) {
+                return b.getSceneInfo(launchScene);
+            });
 
-        bundle.loadScene(launchScene, null, onProgress, function (err, scene) {
-            if (!err) {
-                cc.director.runSceneImmediate(scene);
-                if (cc.sys.isBrowser) {
-                    // show canvas
-                    var canvas = document.getElementById("GameCanvas");
-                    canvas.style.visibility = "";
-                    var div = document.getElementById("GameDiv");
-                    if (div) {
-                        div.style.backgroundImage = "";
+            bundle.loadScene(launchScene, null, onProgress, function (err, scene) {
+                if (!err) {
+                    cc.director.runSceneImmediate(scene);
+                    if (cc.sys.isBrowser) {
+                        // show canvas
+                        var canvas = document.getElementById("GameCanvas");
+                        canvas.style.visibility = "";
+                        var div = document.getElementById("GameDiv");
+                        if (div) {
+                            div.style.backgroundImage = "";
+                        }
+                        console.log("Success to load scene: " + launchScene);
                     }
-                    console.log("Success to load scene: " + launchScene);
                 }
-            }
-        });
+            });
+            ///
+        }, 3000);
     };
 
     var option = {
@@ -172,14 +178,14 @@ window.boot = function () {
 if (window.jsb) {
     var isRuntime = typeof loadRuntime === "function";
     if (isRuntime) {
-        require("src/settings.a8b44.js");
+        require("src/settings.be026.js");
         require("src/cocos2d-runtime.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
         }
         require("jsb-adapter/engine/index.js");
     } else {
-        require("src/settings.a8b44.js");
+        require("src/settings.be026.js");
         require("src/cocos2d-jsb.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
