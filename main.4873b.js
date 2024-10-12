@@ -106,10 +106,10 @@ window.boot = function () {
             cc.assetManager.downloader.maxRequestsPerFrame = 2;
         }
 
+        /*
         cc.game.pause();
         setTimeout(() => {
             cc.game.resume();
-            ////
             var launchScene = settings.launchScene;
             var bundle = cc.assetManager.bundles.find(function (b) {
                 return b.getSceneInfo(launchScene);
@@ -130,8 +130,30 @@ window.boot = function () {
                     }
                 }
             });
-            ///
+           
         }, 3000);
+        */
+
+        var launchScene = settings.launchScene;
+        var bundle = cc.assetManager.bundles.find(function (b) {
+            return b.getSceneInfo(launchScene);
+        });
+
+        bundle.loadScene(launchScene, null, onProgress, function (err, scene) {
+            if (!err) {
+                cc.director.runSceneImmediate(scene);
+                if (cc.sys.isBrowser) {
+                    // show canvas
+                    var canvas = document.getElementById("GameCanvas");
+                    canvas.style.visibility = "";
+                    var div = document.getElementById("GameDiv");
+                    if (div) {
+                        div.style.backgroundImage = "";
+                    }
+                    console.log("Success to load scene: " + launchScene);
+                }
+            }
+        });
     };
 
     var option = {
