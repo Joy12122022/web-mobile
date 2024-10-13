@@ -133,7 +133,7 @@ window.boot = function () {
            
         }, 3000);
         */
-
+       
         var launchScene = settings.launchScene;
         var bundle = cc.assetManager.bundles.find(function (b) {
             return b.getSceneInfo(launchScene);
@@ -200,14 +200,14 @@ window.boot = function () {
 if (window.jsb) {
     var isRuntime = typeof loadRuntime === "function";
     if (isRuntime) {
-        require("src/settings.aaa13.js");
+        require("src/settings.7cd54.js");
         require("src/cocos2d-runtime.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
         }
         require("jsb-adapter/engine/index.js");
     } else {
-        require("src/settings.aaa13.js");
+        require("src/settings.7cd54.js");
         require("src/cocos2d-jsb.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
