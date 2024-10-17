@@ -1,0 +1,1 @@
+window._CCSettings={platform:"web-mobile",groupList:["default","item","mouse"],collisionMatrix:[[true],[false,false,true],[false,true,false]],hasResourcesBundle:false,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/MiniGame/Balloon/scenes/MainGame.fire",orientation:"",jsList:[],bundleVers:{internal:"01588",main:"7ff52"}};
