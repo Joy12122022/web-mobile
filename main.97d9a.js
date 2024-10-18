@@ -12,12 +12,12 @@ window.boot = function () {
 
         let params = new URLSearchParams(location.search);
         const _lang = params.get("lang");
-        let _splashStr = "./splash_en.505b7.jpg";
+        let _splashStr = "./splash_en.f742a.jpg";
 
         if (_lang != null) {
             switch (_lang) {
                 case "en":
-                    _splashStr = "./splash_en.505b7.jpg";
+                    _splashStr = "./splash_en.f742a.jpg";
                     break;
                 case "cn":
                     _splashStr = "./splash_cn.jpg";
@@ -45,12 +45,12 @@ window.boot = function () {
                     break;
 
                 default:
-                    _splashStr = "./splash_en.505b7.jpg";
+                    _splashStr = "./splash_en.f742a.jpg";
                     break;
             }
         }
 
-        let _defaultSplashStyle = "#171717 url('./splash_en.505b7.jpg') no-repeat center";
+        let _defaultSplashStyle = "#171717 url('./splash_en.f742a.jpg') no-repeat center";
         splash.style.background = "#171717 url('" + _splashStr + "') no-repeat center";
         splash.style.backgroundSize = "contain";
         //splash.onerror="this.onerror=null;splash.style.background = " + _defaultSplashStyle;
@@ -200,14 +200,14 @@ window.boot = function () {
 if (window.jsb) {
     var isRuntime = typeof loadRuntime === "function";
     if (isRuntime) {
-        require("src/settings.128f2.js");
+        require("src/settings.2009d.js");
         require("src/cocos2d-runtime.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
         }
         require("jsb-adapter/engine/index.js");
     } else {
-        require("src/settings.128f2.js");
+        require("src/settings.2009d.js");
         require("src/cocos2d-jsb.js");
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require("src/physics.js");
